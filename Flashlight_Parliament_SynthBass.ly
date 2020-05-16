@@ -2,9 +2,15 @@
 \version "2.14.0"
 #(ly:set-option 'midi-extension "mid")
 
+% first, define a variable to hold the formatted date:
+date = #(strftime "%d-%m-%Y" (localtime (current-time)))
+
 \header {
   title = "FLASHLIGHT (Bass)"
   subtitle = "Parliament"
+  date = \date
+  poet = \date
+  tagline = "Everbody has a little light under the sun"
   composer = "G. CLINTON, W. COLLINS and B. WORRELL"
   arranger = "transcription by Pieter Kitslaar"
 }
