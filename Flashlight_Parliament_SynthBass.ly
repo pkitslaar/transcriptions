@@ -1,16 +1,34 @@
-% Lily was here -- automatically converted by /Applications/LilyPond.app/Contents/Resources/bin/midi2ly from /Users/pieter/Documents/Scores/Flashlight_Parliament_SynthBass.mid
+% Flashlight by Parliament
+%
+% Transcription of legendary mini moog bass line by Bernie Worrell
+%
+% Notation is adapted to be played on bass guitar with use of 
+% octave pedal for lower range notes.
+%
+% transcription by Pieter Kitslaar
+%
+
 \version "2.14.0"
 #(ly:set-option 'midi-extension "mid")
 
 % first, define a variable to hold the formatted date:
 date = #(strftime "%d-%m-%Y" (localtime (current-time)))
 
+#(use-modules (ice-9 popen))
+#(use-modules (ice-9 rdelim))
+commit =
+#(let* ((port (open-pipe* OPEN_READ "git" "rev-parse" "--short" "HEAD"))
+        (str  (read-line port)))
+   (close-pipe port)
+   str)
+
+combined_version = #(string-append "commit: " commit " date: " date)
+
 \header {
   title = "FLASHLIGHT (Bass)"
   subtitle = "Parliament"
   date = \date
-  poet = \date
-  tagline = "Everbody has a little light under the sun"
+  tagline = \combined_version
   composer = "G. CLINTON, W. COLLINS and B. WORRELL"
   arranger = "transcription by Pieter Kitslaar"
 }
@@ -25,6 +43,7 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
   }
 }
 
+% taken from http://lilypond.1069038.n5.nabble.com/Function-to-add-articulation-to-all-notes-td208433.html
 addArticulation = 
 #(define-music-function (event music) (ly:event? ly:music?) 
    (define (add mus) 
@@ -40,6 +59,8 @@ addArticulation =
     music) 
    music) 
 
+% short-hand to easily add staccato expresion marks to a collection of music
+% usage: \S {c4 a g}
 S =
 #(define-music-function
      (parser location note)
@@ -48,36 +69,30 @@ S =
      \addArticulation \staccato #note
    #})
 
-trackBchannelB ={
+M = 
+#(define-music-function
+     (parser location txt)
+     (markup?)
+   #{
+     \mark \markup { \box #txt }
+   #})
 
-  \key f \minor
-
-  \time 4/4
-
-
-  \key f \minor
-
-  \tempo 4 = 104
-
-%  \set Staff.instrumentName = "bass_midi"
-
-
-
-  \relative c {
-    r1
-    |
-    r2 r8  bes8 \glissando c8 r8
-    | % 4
+bass_line = \relative c {
+    
+    r1| r2 r8  
+    bes8 \glissando c8 r8 |
+   
     r2 
     \ottava #-1
     bes4 \glissando \grace { a32 \glissando ges32 \glissando des32 \glissando} c8 
     \ottava #0
     
-    r8
-    | % 5
-    \break
+    r8|\break
+    
     r2 r4 r16 
-    g'16 bes8 | \mark \markup {\box "A"} \S {c c bes bes g g ges ges | f4} 
+    g'16 bes8 | 
+    \M "A" 
+    \S {c c bes bes g g ges ges | f4} 
     
     r4 r16 
     g16 a8 bes b | \S {c c bes bes g g ges ges |f4} 
@@ -100,7 +115,7 @@ trackBchannelB ={
     \ottava #-1
     \S{ f8. f16 ees8. ees16 d8. d16 des8 c} |
     
-    \mark \markup {\box "B"}
+    \M "B"
     
     c16 c'16 c,8 
     \ottava #0
@@ -140,7 +155,7 @@ trackBchannelB ={
     \tuplet 3/2 {r8 \grace ees'16 f8 ees8} c4 r4 |
     
     \break
-   \mark \markup { \box "Break"}
+   \M "C"
    
     r2 r4 
     \grace d'16 \glissando ees4 |
@@ -179,12 +194,12 @@ trackBchannelB ={
     r4 r8 
     a,,8 a c16 d f4 |
     
-    r2 r8 ees'16 r16 c8 ees16 r16
-    | % 49
-    bes8 c16 r16 g8 bes ees,16 f g bes ees, c8.
-    | % 50
+    r2 r8 
+    ees'16 r16 c8 ees16 r16 |
+    bes8 c16 r16 g8 bes ees,16 f g bes ees, c8. | 
+    
     \break
-    \mark \markup {\box "C"}
+    \M "D"
     
     r8
     \S{ c bes bes g g ges ges | f4} r4 r2 |
@@ -214,7 +229,8 @@ trackBchannelB ={
     \ottava #0
     a16 bes8 |
     
-    \S{ c\mark \markup {\box D} c bes bes g g ges ges | f4} 
+    \M "E"
+    \S{ c^"Everybody's got a little light..." c bes bes g g ges ges | f4} 
     g16 bes d c16~4~16 
     
     g16 bes g | \S{ c8 c bes bes g g ges ges | f4} 
@@ -238,7 +254,9 @@ trackBchannelB ={
     
     r4 r16
     \ottava #-1
-    a,8. bes8 b | \S{ c c d16 c d8 ees ees e16 ees e8 }| 
+    a,8. bes8 b | 
+    \M "F"
+    \S{ c^"Da da da de..." c d16 c d8 ees ees e16 ees e8 }| 
     \ottava #0
     \S{ f f g16 f g8 a a bes b | c c' bes bes g g ges ges | f} 
     
@@ -255,6 +273,8 @@ trackBchannelB ={
     \S{ c8 r8 r16 c16 d8 ees8 r16 ees16 e8. r16} |
     \ottava #0
     \S{ f8. f16 a8. f16 bes8 bes16 f b8 b16 f} |
+    
+    \M "G"
     \S{ c'8 c bes bes g g ges ges |f4}
     g''16 ees c bes'16\prall~4~16  
     
@@ -288,6 +308,8 @@ trackBchannelB ={
     r16 
     ges16 bes8 | \S{ c8 c bes bes g g ges ges}|
     \grace ees16 \S{f8 f ees ees d16 ees d8 des des} |
+    
+    \M "H"
     \S{c16 c' c,8 d d ees ees16 ees16 e8 e| f4} 
     \ottava #0
     g''16 ees16 c bes'16\prall~4~16 
@@ -296,6 +318,8 @@ trackBchannelB ={
     
     r4 r16
     ges'16 f ges f ees c bes |
+    
+    \M "I"
     \S{c8 c bes bes g g ges ges} |
     \ottava #-1
     \S{f f ees ees d d des des} |
@@ -312,6 +336,8 @@ trackBchannelB ={
     \S{c c d d ees ees e e} |
     \ottava #0
     \S{f16 f' f,8 g g a a bes b} |
+    
+    \M "J"
     c c'16 bes16~4 
     
     r2 | r16 
@@ -340,10 +366,12 @@ trackBchannelB ={
     
     r4 
     a,8 bes b | 
+    \M "K"
     \S{ c8 c d d ees ees e e} |
     \S{ f f16 f 
     \ottava #0    
     a8 a16 a bes8 bes b b} |
+    
     \S{ c16 c' c,8 d d ees ees e e} | 
     \S{f8 f a a bes bes} 
     a16 bes16 c a |ees'2 
@@ -352,7 +380,10 @@ trackBchannelB ={
     c16 bes g16 f16~|f4 
     
     r4 r16 
-    aes,16 a8 bes b | c 
+    aes,16 a8 bes b | 
+    
+    \M "L"
+    c 
     \ottava #-1
     a, bes b c 
     \ottava #0
@@ -373,7 +404,7 @@ trackBchannelB ={
     
     \S{c8 c d d ees8 ees16 c16 e8 e16 c16} | 
     \ottava #-1
-    ges'16( f ees f ees c bes c bes g f g f ees )  f8  \bendAfter -5  ~ f4 
+    ges'16( f ees f ees c bes c bes g f g f ees )  f8  \bendAfter -5  ~ \M "M" f4 
     \ottava #0
     
     \S{c'8 c bes bes g g | f4} 
@@ -387,29 +418,28 @@ trackBchannelB ={
     \S{c8 f ees c bes g ges ges} |
     \ottava #-1
     \S{f f ees ees d d des des} |
+    
+    \M "N"
+    
     \S{c c d d ees ees 
      \ottava #0
      e e}| 
     
-    \S{f16 f16 r16 f16 a8. bes16 r16 a16 b8 r16 c16~8} |
-    \S{c8 c8 bes bes g g ges ges} |
+    \S{f16\> f16 r16 f16 a8. bes16 r16 a16 b8 r16 c16~8} |
+    \S{c8 c8 bes bes g g ges ges\!} |
 
-  }
 }
 
-
-trackB = <<
-
-  \clef bass
-
-  \context Voice = voiceA \trackBchannelB
->>
-
-
 \score {
-  <<
-    \context Staff=trackB \trackB
-  >>
+  {
+      \key f \minor
+      \time 4/4
+      \tempo 4 = 104
+      
+      \clef bass
+      \bass_line
+    
+  }
   \layout {}
   \midi {}
 }
