@@ -31,6 +31,7 @@ combined_version = #(string-append "commit: " commit " date: " date)
   tagline = \combined_version
   composer = "G. CLINTON, W. COLLINS and B. WORRELL"
   arranger = "transcription by Pieter Kitslaar"
+  meter = "* Notes sound octave lower than written"
 }
 
 \layout {
@@ -77,15 +78,15 @@ M =
      \mark \markup { \box #txt }
    #})
 
-bass_line = \relative c {
+bass_line = \relative c' {
     
     r1| r2 r8  
     bes8 \glissando c8 r8 |
    
     r2 
-    \ottava #-1
+    %\ottava #-1
     bes4 \glissando \grace { a32 \glissando ges32 \glissando des32 \glissando} c8 
-    \ottava #0
+   % \ottava #0
     
     r8|\break
     
@@ -104,30 +105,30 @@ bass_line = \relative c {
     g16 a8 bes b | c16 f c8 \S{bes bes g g ges ges | f4} 
     
     r4 r16 
-    \ottava #-1
+    %\ottava #-1
     a,16~8 bes8 b | c16 c' c,8 
-    \ottava #0
+   % \ottava #0
     \S {bes' bes g g ges ges | f4 }
     
     
     r4 r16 
     aes16 a8 bes b | c16 ees \S {c8 bes bes g g ges ges} | 
-    \ottava #-1
+    %\ottava #-1
     \S{ f8. f16 ees8. ees16 d8. d16 des8 c} |
     
     \M "B"
     
     c16 c'16 c,8 
-    \ottava #0
+    %\ottava #0
     \S {bes' bes g g ges ges | f4} 
     
     r4 r16 
     g16 a8 bes b | \S{ c c bes bes g g ges ges | f4} 
     
     r4 r16 
-    \ottava #-1
+    %\ottava #-1
     a,8. bes8 b | c16 c' c,8
-    \ottava #0
+    %\ottava #0
     \S{bes' bes g g ges ges | f4} 
     
     r4 r16 
@@ -135,19 +136,19 @@ bass_line = \relative c {
     
     r4 r16 
     ges'8 f ees16 c8 | \S{ c c bes bes g g ges ges | f4} 
-    \ottava #-1
+    %\ottava #-1
     f16 \glissando c8. 
-    \ottava #0
+    %\ottava #0
     r16 
     
     
     \grace g'16 a8. bes8 b | \S{ c c bes bes g g ges ges} | 
-    \ottava #-1
+    %\ottava #-1
     \S{ f f ees ees d d des des } | 
     
     c16 c' c,8 
     \S{ d d ees ees e16 e' e,8 | f4} 
-    \ottava #0
+    %\ottava #0
     
     r4 r16 
     \grace g16 a8. bes8 b | \S{ c c bes bes g g ges ges | f4} 
@@ -158,45 +159,53 @@ bass_line = \relative c {
    \M "C"
    
     r2 r4 
+    \ottava #1
     \grace d'16 \glissando ees4 |
     
     r2
     \grace f16 \glissando \( ges16 \glissando f16 \glissando ges16 \glissando f16~f4 \) |
+    \ottava #0
     
-    r2 
+    r2
     ees4 c | f, ees c8 bes g16 ees16 c8 | 
     
     r2 
+    \ottava #1
     ees'16 ees'16~4.\prall |
     
     r2 
     bes'4 \prall  a \prall |
+    \ottava #0
     
     r2 
     \grace c,16 ees4 c | bes f ees8 c f,16 ees c8 |
     
     r2 
+    \ottava #1
     ees'16 \glissando ees'8.\prall r4 |
     
     r4 r8 
     \pitchedTrill ges8 \startTrillSpan f  ~ 4\stopTrillSpan f4 |
     
+    \ottava #0
     r2 
     ees4 c |
     bes f8 ees c bes 
-    \ottava #-1
+    %\ottava #-1
     f16 ees c8 |
-    \ottava #0
+    \ottava #1
     
     r2 
     ees'' \prall |
     
     r4 r8 
     a,,8 a c16 d f4 |
+    \ottava #0
     
     r2 r8 
     ees'16 r16 c8 ees16 r16 |
     bes8 c16 r16 g8 bes ees,16 f g bes ees, c8. | 
+    \ottava #0
     
     \break
     \M "D"
@@ -217,16 +226,16 @@ bass_line = \relative c {
     
     r4 r16 
     g16 a8 bes b | \S{ c c bes bes g g ges ges} |
-    \ottava #-1
+    %\ottava #-1
     \S{f f ees ees d16 d' d,8 des des} | 
     
     c16 c' c,8 \S{ d d ees ees e e |  f4} 
-    \ottava #0
+    %\ottava #0
     
     r4 r16 ges'16 f ges f ees c bes | \S{ c8 c bes bes g g ges ges|  f4} 
-    \ottava #-1
+    %\ottava #-1
     f16 ees c f16~4~16 
-    \ottava #0
+    %\ottava #0
     a16 bes8 |
     
     \M "E"
@@ -240,10 +249,10 @@ bass_line = \relative c {
     \S{ f8 ees c bes g g ges ges | f4} 
     
     r4 
-    \ottava #-1
+    %\ottava #-1
      a,8. a16 bes8 b | \S{ c8. c16 d8. d16 ees ees r16 ees e8. e16} |
     \S{ f8. f16
-    \ottava #0
+    %\ottava #0
       a8 a bes16 g bes8 b16 g b8 | c c bes bes g g ges ges | f4 }
     
     r16 
@@ -253,30 +262,33 @@ bass_line = \relative c {
     \S{c, bes8. bes16 g8. g16 ges8. ges16 | f4} 
     
     r4 r16
-    \ottava #-1
+    %\ottava #-1
     a,8. bes8 b | 
     \M "F"
     \S{ c^"Da da da de..." c d16 c d8 ees ees e16 ees e8 }| 
-    \ottava #0
+    %\ottava #0
     \S{ f f g16 f g8 a a bes b | c c' bes bes g g ges ges | f} 
     
     r8 
+    \ottava #1
     g'16 ees16 c16 bes'16~2\prall |
-    
+    \ottava #0
     
     r16 
     g,, bes8 c4 g ges | f 
     
     r4 r8 
-    \ottava #-1
+    %\ottava #-1
     a,8 bes b | 
     \S{ c8 r8 r16 c16 d8 ees8 r16 ees16 e8. r16} |
-    \ottava #0
+    %\ottava #0
     \S{ f8. f16 a8. f16 bes8 bes16 f b8 b16 f} |
     
     \M "G"
     \S{ c'8 c bes bes g g ges ges |f4}
+    \ottava #1
     g''16 ees c bes'16\prall~4~16  
+    \ottava #0
     
     g,,16 bes8 | \S{ c c bes bes g16 bes g8 ges16 a ges8| f4} 
     
@@ -287,31 +299,34 @@ bass_line = \relative c {
     g'16 ees c bes'16\prall~4~16  
     
     a,16 bes r16| \S{c8 c bes bes 
-    \ottava #-1
+    %\ottava #-1
     g g ges ges16 ees} | 
     \S{ f8 f16 d ees8 ees16 des d8 d16 c16 des r16 des8} | 
     \S{ c8 c16 c d8 d16 d ees8 ees16 ees e8 e16 e | f4} 
-    \ottava #0
+    %\ottava #0
     f'16 ees c bes'16\prall~2 |
     
-    \ottava #-1
+    %\ottava #-1
     \S{ c,,8 c bes bes g g ges ges | f4}
-    \ottava #0
+    %\ottava #0
     
     r4 r16 
     ges''16 f ges f ees16 c bes |
-    \ottava #-1
+    %\ottava #-1
     \S{ c,8 c d d ees ees16 c e8 e16 c | f4} 
-    \ottava #-2
+    %\ottava #-2
     f,16 ees c16 bes'16\prall~4\prall 
     
     r16 
     ges16 bes8 | \S{ c8 c bes bes g g ges ges}|
+    \ottava #-1
     \grace ees16 \S{f8 f ees ees d16 ees d8 des des} |
     
     \M "H"
-    \S{c16 c' c,8 d d ees ees16 ees16 e8 e| f4} 
-    \ottava #0
+    \S{c16 c' c,8 d d ees ees16 ees16 
+    \ottava #0   
+    e8 e| f4} 
+    
     g''16 ees16 c bes'16\prall~4~16 
     
     g,16 bes8 | \S{ c c bes bes g g ges ges | f4} 
@@ -321,20 +336,20 @@ bass_line = \relative c {
     
     \M "I"
     \S{c8 c bes bes g g ges ges} |
-    \ottava #-1
+    %\ottava #-1
     \S{f f ees ees d d des des} |
     
     \S{c c d d ees ees e e} | 
     \S{f f 
-     \ottava #0
+     %\ottava #0
      a a bes bes b b} |
     
     \S{c16 c' c,8 bes bes g g ges ges} |
-    \ottava #-1
+    %\ottava #-1
     \S{f f ees ees d d des des} |
     
     \S{c c d d ees ees e e} |
-    \ottava #0
+    %\ottava #0
     \S{f16 f' f,8 g g a a bes b} |
     
     \M "J"
@@ -348,10 +363,10 @@ bass_line = \relative c {
     c16 c16 c'16 bes16~8 
     
     r8 r4 r16 
-    \ottava #-1
+    %\ottava #-1
     f,16 ges8 | 
     \S{f8 r8 ees8 r8 d8. d16 des8. des16 | c8} 
-    \ottava #0
+    %\ottava #0
     
     r8 r4 r8 
     \grace c' c'16 bes16~4 |
@@ -360,7 +375,7 @@ bass_line = \relative c {
     ges16 r16 f16 r16 ees16 c8|
     
     r2 
-    \ottava #-1
+    %\ottava #-1
     c16 bes16 g8 ~\tuplet 3/2 {8 ges4} | 
     \tuplet 3/2 {r8 f4} ees8 
     
@@ -369,7 +384,7 @@ bass_line = \relative c {
     \M "K"
     \S{ c8 c d d ees ees e e} |
     \S{ f f16 f 
-    \ottava #0    
+    %\ottava #0    
     a8 a16 a bes8 bes b b} |
     
     \S{ c16 c' c,8 d d ees ees e e} | 
@@ -384,9 +399,9 @@ bass_line = \relative c {
     
     \M "L"
     c 
-    \ottava #-1
+    %\ottava #-1
     a, bes b c 
-    \ottava #0
+    %\ottava #0
     a' bes b | 
     c d ees e f16 f, a8 bes b |
     
@@ -394,18 +409,18 @@ bass_line = \relative c {
     \S{ f8 f a a bes bes b b16 b16} |
     
     \S{c8 c bes bes g g ges ges} |
-    \ottava #-1
+    %\ottava #-1
     \S{f f ees ees d d des des} |
     
     \S{c c d d ees ees e e}|
     \S{f f 
-    \ottava #0  
+    %\ottava #0  
     a16 g a8 bes bes16 g b8 c} |
     
     \S{c8 c d d ees8 ees16 c16 e8 e16 c16} | 
-    \ottava #-1
+    %\ottava #-1
     ges'16( f ees f ees c bes c bes g f g f ees )  f8  \bendAfter -5  ~ \M "M" f4 
-    \ottava #0
+    %\ottava #0
     
     \S{c'8 c bes bes g g | f4} 
     
@@ -416,13 +431,13 @@ bass_line = \relative c {
     r4 
     bes'4 ges16( f ees bes) |
     \S{c8 f ees c bes g ges ges} |
-    \ottava #-1
+    %\ottava #-1
     \S{f f ees ees d d des des} |
     
     \M "N"
     
     \S{c c d d ees ees 
-     \ottava #0
+     %\ottava #0
      e e}| 
     
     \S{f16\> f16 r16 f16 a8. bes16 r16 a16 b8 r16 c16~8} |
