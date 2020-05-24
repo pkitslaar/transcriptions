@@ -313,21 +313,21 @@ bass_line = \relative c' {
     r4 r16 
     ges''16 f ges f ees16 c bes |
     %\ottava #-1
-    \S{ c,8 c d d ees ees16 c e8 e16 c | f4} 
+    \S{ c8 c d d ees ees16 c e8 e16 c | f4} 
     %\ottava #-2
     f,16 ees c16 bes'16\prall~4\prall 
     
     r16 
     ges16 bes8 | \S{ c8 c bes bes g g ges ges}|
-    \ottava #-1
+    %\ottava #-1
     \grace ees16 \S{f8 f ees ees d16 ees d8 des des} |
     
     \M "H"
     \S{c16 c' c,8 d d ees ees16 ees16 
-    \ottava #0   
+    %\ottava #0   
     e8 e| f4} 
     
-    g''16 ees16 c bes'16\prall~4~16 
+    g'16 ees16 c bes'16\prall~4~16 
     
     g,16 bes8 | \S{ c c bes bes g g ges ges | f4} 
     
