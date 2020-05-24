@@ -389,7 +389,7 @@ bass_line = \relative c' {
     
     \S{ c16 c' c,8 d d ees ees e e} | 
     \S{f8 f a a bes bes} 
-    a16 bes16 c a |ees'2 
+    a16 bes16 c a |ees'2\prall 
     
     r4 
     c16 bes g16 f16~|f4 
