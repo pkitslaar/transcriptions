@@ -307,11 +307,11 @@ bass_line = \relative c' {
     f'16 ees c bes'16\prall~2 |
     
     %\ottava #-1
-    \S{ c,,8 c bes bes g g ges ges | f4}
+    \S{ c,8 c bes bes g g ges ges | f4}
     %\ottava #0
     
     r4 r16 
-    ges''16 f ges f ees16 c bes |
+    ges'16 f ges f ees16 c bes |
     %\ottava #-1
     \S{ c8 c d d ees ees16 c e8 e16 c | f4} 
     %\ottava #-2
@@ -327,7 +327,7 @@ bass_line = \relative c' {
     %\ottava #0   
     e8 e| f4} 
     
-    g'16 ees16 c bes'16\prall~4~16 
+    g'	16 ees16 c bes'16\prall~4~16 
     
     g,16 bes8 | \S{ c c bes bes g g ges ges | f4} 
     
