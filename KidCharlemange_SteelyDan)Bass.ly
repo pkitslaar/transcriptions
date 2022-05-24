@@ -453,23 +453,226 @@ bass_line = \relative c {
      f8~f16 e16~
      e8 d |
      
+     \break
      
+     % Interlude
+      \override TextSpanner.bound-details.left.text = "tap with right hand"
      
+     es''16\startTextSpan r es r
+     es es r es
+     r bes es bes\glissando
+     es8 \prall r |
      
+      r16 bes es r
+      bes es r es
+      r bes es bes\glissando
+     es8 \prall r |
      
-     
+      r16 bes es r
+      es es r es
+      r16 bes es bes \glissando
+      es4 \prall  |
       
+      r16 bes es r
+      es es r es
+      r bes es bes \glissando
+      es8 \prall r \stopTextSpan |
      
+     % Verse
      
+     a,,,8 \M "Verse"  r
+     r16 a r e
+     a r a r
+     r8 a16 e
+     g8 g8
+     r r16 g
+     g8 g8 
+     r16 d' g d |
      
+     f8 f8
+     r16 d c a~
+     a8r16 d
+     c c d c |
      
+     bes8 bes
+     r16 d c d~
+     d4
+     f16  r8. |
      
+     \hideNotes
+    \grace { f16\glissando }
+    \unHideNotes
+     <c''~ g~ a,,>8 <c g a,,>
+     e,,,16 e a a~
+     a8 r16 a
+     e8 e16 a |
      
+     g'8 g8
+     r16 g d b~
+     b8. b16
+     d d g d |
      
+     f8 f8
+     r16 d c a~
+     a d c c
+     r d c e, |
      
+     bes'16 bes d c~
+     c c es e
+     e d c e,~
+     e d' c c |
      
+     % Pre-Chorus
+     f8 \M "Pre-Chorus" f16 f
+     c c f g~
+     g8 g16 g
+     d8 g8 |
+     
+     a8. a16
+     e8  a8
+     g8. g16
+     d d g r |
+     
+     d8 d16 d
+     d8 g
+     f2 |
+     
+     e4~
+     e8 a
+     f8. e16~
+     e8 d16 b |
+     
+     % Chorus
+     d8 \M "Chorus" d
+     r16 d a' a,
+     e'8 e16 b'~
+     b b e d, |
+     
+     d d a' d
+     r d a d,
+     e8 e16 b'~
+     b b e d, |
+     
+     d d r d
+     a' a d d,
+     e8 e16 b'16~
+     b b e e, |
+     
+     f8 f8~
+     f16 g ges g
+     g g8 g16
+     g,4 |
+     
+     % Interlude
+     \M "interlude"
+     c16-T c'^P\glissando bes d,-T
+     bes'8^P \glissando  c16^P e,,-T~
+     e e'^P e,-T e16-T
+     g16-T a8-T\glissando c16-T~ |
+     
+     c c'^P r c,16-T 
+     bes'8^P \glissando c16^P e,,-T~
+     e e16-T g8-T
+     b8-T c8-T |
     
+     
+     % Outro
+     \M "Outro"
+     
+     f16 r r f
+     r8 f16 r
+     e8 e16 e
+     b b e d |
+     
+     d8. f16
+     g g,8 c16
+     c8. c16
+     c16 e8 f16~ |
+     
+     f8 f16 f16
+     c c f e~
+     e r c e,~
+     e d' as d~ |
+     
+     d8. f16
+     g16 g16 r c,~
+     c8 r16 g16
+     c16 e8 f16~ |
+     
+     f8. f16
+     c c f e~
+    e16 r c e, ~
+    e d' c d~ |
     
+    d r d f
+    g g,8 c16~
+    c8 c16 c16
+    c16 e8 f16~ |
+    
+    f8. f16
+    c16 c f e16~
+    e16 d b e,
+    e d' c d~ |
+    
+    d16 e f8
+    g16 g,16~16 c16~
+    c8 r16 g
+    c16 e16~e f16~ |
+    
+    f8. f16
+    c16 c f e16~
+    e d b e,~
+    e d' c d16~ |
+    
+    d8. f16 
+    g16 g,16~g c~
+    c8. c16 
+    c16 e16~e f16~ |
+    
+    f8. f16
+    c16 c f e~
+    e16 r c e,~
+    e d' c d |
+    
+    d8 f8
+    g16 g,16~g c16~
+    c8 r16 g16
+    c16 e16~e f16~ |
+    
+    f8. f16
+    c16 c f e~
+    e r c e,~
+    e d' c d~ |
+    
+    d d f r
+    g g,~g c16~
+    c c e,8
+    f16 e16~e f~ |
+    
+    f8. d'16
+    c16 c f e~
+    e d c e,~
+    e d' c d~ |
+    
+    d d f8
+    g16 g,16~g c~
+    c c e8
+    g16 c, r f~ |
+    
+    f8 f16 f
+    c c f e~
+    e d c e,~
+    e d' c d~ |
+    
+    d d f8
+    g16 g, r c~
+    c c g8
+    c16 e r f~ |
+    
+    f8
+    
+     
+     
 }
 
 \score {
