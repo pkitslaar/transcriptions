@@ -21,7 +21,7 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
 
 \header {
   title = "Kid Charlemange (Bass)"
-  subtitle = "Steely Dan"
+  subtitle = "Steely Dan - as played by Chuck Rainey"
   date = \date
   %tagline = \combined_version
   composer = "D. Fagen & W. Becker"
@@ -87,9 +87,9 @@ bass_line = \relative c {
     es4 \prall
     }
     
-    r8 f,8|
+    r8 f,8 \glissando|
 
-\break
+%\break
         
             
      a8 \M "Verse" r8
@@ -337,7 +337,7 @@ bass_line = \relative c {
      
      d,16  d r d
      a' a d r
-     e, e,8 b''16~
+     e, e,16~e b''16~
      b b e r |
      
      d,16 d r d
@@ -585,9 +585,9 @@ bass_line = \relative c {
      b b e d |
      
      d8. f16
-     g g,8 c16
+     g g,16~g c16
      c8. c16
-     c16 e8 f16~ |
+     c16 e16~e f16~ |
      
      f8 f16 f16
      c c f e~
@@ -597,7 +597,7 @@ bass_line = \relative c {
      d8. f16
      g16 g16 r c,~
      c8 r16 g16
-     c16 e8 f16~ |
+     c16 e16~e f16~ |
      
      f8. f16
      c c f e~
@@ -605,9 +605,9 @@ bass_line = \relative c {
     e d' c d~ |
     
     d r d f
-    g g,8 c16~
+    g g,16~g c16~
     c8 c16 c16
-    c16 e8 f16~ |
+    c16 e16~e f16~ |
     
     f8. f16
     c16 c f e16~
